@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     ${projectName}
+     (description)
+     ====================================================================== -->
+<project name="${projectName} build" default="build">
+
+    <!-- ENVIRONMENT VERSION INFO -->
+    <echo level="info" message="Ant  = ${ant.version}" />
+    <echo level="info" message="java = ${ant.java.version}" />
+
+    <!-- PROPERTIES -->
+    <property name="jar" value="${projectName}.jar" />
+    <property name="src" value="src" />
+    <property name="bin" value="target/classes" />
+
+    <!-- - - - - - - - - - - - - - - - - -
+          target: clean
+         - - - - - - - - - - - - - - - - - -->
+    <target name="clean">
+        <mkdir dir="${bin}" />
+        <delete includeEmptyDirs="yes">
+            <fileset dir="${bin}" includes="**" />
+        </delete>
+        <delete file="${jar}" />
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - -
+          target: compile
+         - - - - - - - - - - - - - - - - - -->
+    <target name="compile">
+        <mkdir dir="${bin}" />
+        <javac fork="yes"
+               includeantruntime="no"
+               srcdir="${src}"
+               destdir="${bin}"
+               source="${javaVersion}"
+               target="${javaVersion}"
+               encoding="utf-8"
+               optimize="yes"
+               deprecation="no"
+               debug="yes"
+               debuglevel="source,lines">
+            <include name="**/*.java" />
+        </javac>
+        <copy todir="${bin}">
+            <fileset dir="${src}">
+                <include name="**/*" />
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - -
+          target: archive
+         - - - - - - - - - - - - - - - - - -->
+    <target name="archive" depends="compile">
+        <jar destfile="${jar}" manifest="${src}/MANIFEST.MF">
+            <fileset dir="${bin}">
+                <exclude name="**/*.java" />
+                <include name="**/*" />
+            </fileset>
+        </jar>
+    </target>
+
+    <!-- =================================
+          target: build
+         ================================= -->
+    <target name="build" depends="archive" />
+
+</project>

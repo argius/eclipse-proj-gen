@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="local.App">
+   <center>
+      <TextArea fx:id="messageArea" editable="false" prefHeight="182.0" prefWidth="468.0" wrapText="true" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="Monospaced Regular" size="11.0" />
+         </font>
+      </TextArea>
+   </center>
+   <top>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onMenuCloseSelected" text="Close">
+                      <accelerator>
+                        <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                      </accelerator>
+                    </MenuItem>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onMenuAboutSelected" text="About This App" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <AnchorPane prefHeight="236.0" prefWidth="457.0">
+               <children>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

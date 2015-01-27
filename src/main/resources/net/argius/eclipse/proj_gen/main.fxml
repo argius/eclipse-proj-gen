@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.argius.eclipse.proj_gen.App">
+   <center>
+      <TextArea fx:id="messageArea" editable="false" prefHeight="182.0" prefWidth="468.0" wrapText="true" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="Monospaced Regular" size="11.0" />
+         </font>
+      </TextArea>
+   </center>
+   <top>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem disable="true" mnemonicParsing="false" onAction="#onMenuNewWindowSelected" text="New Window">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                    <MenuItem mnemonicParsing="false" onAction="#onMenuCloseSelected" text="Close">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onMenuAboutSelected" text="About This App" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <AnchorPane prefHeight="236.0" prefWidth="457.0">
+               <children>
+                  <Label layoutX="28.0" layoutY="14.0" prefHeight="15.0" prefWidth="80.0" text="project name" />
+                  <TextField fx:id="projectName" layoutX="120.0" layoutY="11.0" prefHeight="23.0" prefWidth="235.0">
+                     <font>
+                        <Font name="Monospaced Regular" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="58.0" layoutY="42.0" text="location" />
+                  <TextField fx:id="location" layoutX="120.0" layoutY="40.0" prefHeight="23.0" prefWidth="387.0" text="">
+                     <font>
+                        <Font name="Monospaced Regular" size="11.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="35.0" layoutY="77.0" text="project type" />
+                  <RadioButton fx:id="plainProject" layoutX="120.0" layoutY="77.0" mnemonicParsing="false" text="Plain">
+                    <toggleGroup>
+                      <ToggleGroup fx:id="projType" />
+                    </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="javaProject" layoutX="180.0" layoutY="77.0" mnemonicParsing="false" selected="true" text="Java" toggleGroup="$projType" />
+                  <RadioButton fx:id="maven2Project" layoutX="240.0" layoutY="77.0" mnemonicParsing="false" text="Maven2" toggleGroup="$projType" />
+                  <Label layoutX="35.0" layoutY="105.0" text="Java Version" />
+                  <RadioButton fx:id="java6" layoutX="120.0" layoutY="106.0" mnemonicParsing="false" text="1.6">
+                    <toggleGroup>
+                      <ToggleGroup fx:id="javaVer" />
+                    </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="java7" layoutX="180.0" layoutY="106.0" mnemonicParsing="false" text="1.7" toggleGroup="$javaVer" />
+                  <RadioButton fx:id="java8" layoutX="240.0" layoutY="106.0" mnemonicParsing="false" selected="true" text="1.8" toggleGroup="$javaVer" />
+                  <Button layoutX="521.0" layoutY="40.0" mnemonicParsing="false" onAction="#onChooseDirectoryButtonClicked" prefHeight="23.0" prefWidth="59.0" text="Ref..." />
+                  <CheckBox fx:id="createWebAppFiles" layoutX="121.0" layoutY="136.0" mnemonicParsing="false" text="create WebApp (web.xml 3.0) files" />
+                  <CheckBox fx:id="createJavaFX8Files" layoutX="121.0" layoutY="159.0" mnemonicParsing="false" text="create JavaFX (8) files" />
+                  <CheckBox fx:id="createAntFile" layoutX="121.0" layoutY="182.0" mnemonicParsing="false" text="create an Ant build file" />
+                  <Label layoutX="11.0" layoutY="203.0" prefHeight="15.0" prefWidth="78.0" text="message" />
+                  <Button fx:id="button" layoutX="506.0" layoutY="144.0" mnemonicParsing="false" onAction="#onCreateButtonClicked" prefHeight="67.0" prefWidth="77.0" text="Create" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

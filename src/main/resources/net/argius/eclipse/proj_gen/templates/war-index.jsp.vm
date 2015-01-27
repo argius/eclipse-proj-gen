@@ -1,0 +1,14 @@
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html lang="true">
+<head>
+<meta charset="UTF-8" />
+<title>Servlet1</title>
+</head>
+<body>
+<h1>Hello.</h1>
+<p><a href="servlet1">run servlet1 and forward index.jsp</a></p>
+<p><a href="servlet1?p=1">run servlet1 and output dynamic html</a></p>
+</body>
+</html>
