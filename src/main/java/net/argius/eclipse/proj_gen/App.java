@@ -80,7 +80,7 @@ public final class App extends Application implements Initializable {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("Eclipse Project Creator");
+        stage.setTitle(res.getString("title"));
         stage.setScene(new Scene(new BorderPane(), 640d, 480d));
         stage.setOnCloseRequest(x -> {
             Platform.exit();
