@@ -54,6 +54,13 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>net.argius.eclipse.proj_gen.App</mainClass>
+        </configuration>
+      </plugin>
     </plugins>
     <pluginManagement>
     </pluginManagement>
