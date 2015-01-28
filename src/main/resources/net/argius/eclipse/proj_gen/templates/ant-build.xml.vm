@@ -10,9 +10,9 @@
     <echo level="info" message="java = ${ant.java.version}" />
 
     <!-- PROPERTIES -->
-    <property name="jar" value="${projectName}.jar" />
     <property name="src" value="src" />
     <property name="bin" value="target/classes" />
+    <property name="jar" value="target/${projectName}.jar" />
 
     <!-- - - - - - - - - - - - - - - - - -
           target: clean
