@@ -24,6 +24,14 @@ public final class Projects {
             default:
                 return;
         }
+        final boolean usingJava = type != ProjectType.Plain;
+        if (usingJava) {
+            addOptionalJavaFiles(type, ctx, project);
+        }
+        project.create(ctx);
+    }
+
+    private static void addOptionalJavaFiles(ProjectType type, Map<String, Object> ctx, Project project) {
         final boolean isMaven2Project = type == ProjectType.Maven2;
         final String javaDir = isMaven2Project ? "src/main/java" : "src";
         final String resDir = isMaven2Project ? "src/main/resources" : "src";
@@ -49,7 +57,6 @@ public final class Projects {
             project.addFileGen("build.xml", "ant-build.xml");
             project.addFileGen(javaDir + "/MANIFEST.MF", "ant-MANIFEST.MF");
         }
-        project.create(ctx);
     }
 
     private static boolean isTrue(Map<String, Object> m, String key) {
