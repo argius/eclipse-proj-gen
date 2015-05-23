@@ -101,7 +101,9 @@ final class Maven2Project extends Project {
         addFileGen(".settings/org.eclipse.jdt.core.prefs", "org.eclipse.jdt.core.prefs");
         addFileGen("pom.xml", "pom.xml");
         addDirGen("src/main/java");
+        addDirGen("src/main/resources");
         addDirGen("src/test/java");
+        addDirGen("src/test/resources");
     }
 
 }
