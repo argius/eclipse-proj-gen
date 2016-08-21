@@ -8,6 +8,9 @@ import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.Semaphore;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -15,13 +18,10 @@ import javafx.fxml.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import org.apache.commons.lang3.StringUtils;
-import org.controlsfx.dialog.Dialogs;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public final class App extends Application implements Initializable {
 
@@ -104,7 +104,10 @@ public final class App extends Application implements Initializable {
     @FXML
     void onMenuAboutSelected(ActionEvent evt) {
         final String msg = MessageFormat.format(res.getString("about-this-app"), versionString());
-        Dialogs.create().title("About This App").message(msg).showInformation();
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("About This App");
+        alert.setContentText(msg);
+        alert.show();
     }
 
     @FXML
@@ -200,8 +203,11 @@ public final class App extends Application implements Initializable {
     }
 
     void showAlert(String fmt, Object... args) {
-        String msg = String.format(fmt, args);
-        Platform.runLater(() -> Dialogs.create().title("Alert").message(msg).showWarning());
+        Platform.runLater(() -> {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setContentText(String.format(fmt, args));
+            alert.show();
+        });
     }
 
     void outputMessage(String fmt, Object... args) {
